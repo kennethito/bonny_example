@@ -10,20 +10,10 @@ Steps to get to this state
 5. Fix [mix.exs application mod] and [application.ex get vs get!]
 6. mix test
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `bonny_example` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:bonny_example, "~> 0.1.0"}
-  ]
-end
+Results in the following error.
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/bonny_example>.
-
+** (Mix) Could not start application bonny_example: BonnyExample.Application.start(:normal, [env: :test]) returned an error: shutdown: failed to start child: BonnyExample.Operator
+    ** (EXIT) shutdown: failed to start child: %K8s.Operation{api_version: "bonny-example.test.com/v1", data: nil, method: :get, name: "BonnyExample", path_params: [namespace: "default"], query_params: [], verb: :list}
+        ** (EXIT) exited in: GenServer.call(K8s.Client.DynamicHTTPProvider, {:locate, #PID<0.352.0>}, 5000)
+            ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+```
