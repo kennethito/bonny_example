@@ -15,7 +15,7 @@ defmodule BonnyExample.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {BonnyExample.Application, []}
+      mod: {BonnyExample.Application, [env: Mix.env]}
     ]
   end
 
